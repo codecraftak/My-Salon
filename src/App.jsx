@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X, Phone, Mail, MapPin, Clock, Award, Users, Sparkles, Gift, Wifi, Zap, Car, Calendar } from 'lucide-react';
+import Gallery from './gallery.jsx';
+import { Link } from 'react-router-dom';
 
 const MySalonWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,34 +63,75 @@ const MySalonWebsite = () => {
   const services = [
     {
       category: "Facial Treatments",
-      items: ["Deep Cleansing Facial", "Anti-Aging Treatment", "Hydrating Facial", "Acne Treatment", "Brightening Facial"],
-      image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop",
+      items: [
+        { name: "Deep Cleansing Facial", price: "₹899" },
+        { name: "Anti-Aging Treatment", price: "₹1299" },
+        { name: "Hydrating Facial", price: "₹999" },
+        { name: "Acne Treatment", price: "₹1099" },
+        { name: "Brightening Facial", price: "₹1199" }
+      ]
     },
     {
       category: "Hair Services",
-      items: ["Hair Cutting & Styling", "Hair Coloring", "Highlights & Balayage", "Hair Treatment", "Keratin Treatment"],
-      image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=400&fit=crop"
-    },
-    {
-      category: "Makeup Services",
-      items: ["Bridal Makeup", "Party Makeup", "Natural Makeup", "Professional Makeup", "Makeup Lessons"],
-      image: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&h=400&fit=crop"
-    },
-    {
-      category: "Nail Care",
-      items: ["Manicure", "Pedicure", "Gel Nails", "Nail Art", "Nail Extensions"],
-      image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop"
-    },
-    {
-      category: "Body Treatments",
-      items: ["Body Massage", "Body Scrub", "Waxing", "Threading", "Body Wraps"],
-      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=400&fit=crop"
-    },
-    {
-      category: "Special Treatments",
-      items: ["Microdermabrasion", "Chemical Peel", "Laser Hair Removal", "Eyelash Extensions", "Eyebrow Microblading"],
-      image: "https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?w=600&h=400&fit=crop"
-    }
+          image:
+            "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=400&fit=crop",
+          items: [
+            { name: "Hair Cutting & Styling", price: "₹699" },
+            { name: "Hair Coloring", price: "₹1399" },
+            { name: "Highlights & Balayage", price: "₹1699" },
+            { name: "Hair Treatment", price: "₹999" },
+            { name: "Keratin Treatment", price: "₹2499" },
+          ],
+        },
+        {
+          category: "Makeup Services",
+          image:
+            "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&h=400&fit=crop",
+          items: [
+            { name: "Bridal Makeup", price: "₹4999" },
+            { name: "Party Makeup", price: "₹1999" },
+            { name: "Natural Makeup", price: "₹1499" },
+            { name: "Professional Makeup", price: "₹2599" },
+            { name: "Makeup Lessons", price: "₹1499" },
+          ],
+        },
+        {
+          category: "Nail Care",
+          image:
+            "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop",
+          items: [
+            { name: "Manicure", price: "₹499" },
+            { name: "Pedicure", price: "₹599" },
+            { name: "Gel Nails", price: "₹899" },
+            { name: "Nail Art", price: "₹699" },
+            { name: "Nail Extensions", price: "₹1199" },
+          ],
+        },
+        {
+          category: "Body Treatments",
+          image:
+            "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=400&fit=crop",
+          items: [
+            { name: "Body Massage", price: "₹1299" },
+            { name: "Body Scrub", price: "₹999" },
+            { name: "Waxing", price: "₹799" },
+            { name: "Threading", price: "₹199" },
+            { name: "Body Wraps", price: "₹1399" },
+          ],
+        },
+        {
+          category: "Special Treatments",
+          image:
+            "https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?w=600&h=400&fit=crop",
+          items: [
+            { name: "Microdermabrasion", price: "₹1799" },
+            { name: "Chemical Peel", price: "₹1599" },
+            { name: "Laser Hair Removal", price: "₹2999" },
+            { name: "Eyelash Extensions", price: "₹2199" },
+            { name: "Eyebrow Microblading", price: "₹2499" },
+          ],
+        }
   ];
 
   const handleSubmit = (e) => {
@@ -112,6 +155,7 @@ const MySalonWebsite = () => {
               <a href="#home" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">Home</a>
               <a href="#about" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">About</a>
               <a href="#services" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">Services</a>
+              <a onClick={() => window.location.href = "/gallery"} className="cursor-pointer text-stone-700 hover:text-amber-700 transition-colors font-medium">Gallery</a>
               <a href="#features" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">Features</a>
               <a href="#contact" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">Contact</a>
             </div>
@@ -130,6 +174,7 @@ const MySalonWebsite = () => {
               <a href="#home" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Home</a>
               <a href="#about" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">About</a>
               <a href="#services" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Services</a>
+              <a onClick={() => window.location.href = "/gallery"} className="cursor-pointer text-stone-700 hover:text-amber-700 transition-colors font-medium">Gallery</a>
               <a href="#features" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Features</a>
               <a href="#contact" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Contact</a>
             </div>
@@ -138,12 +183,12 @@ const MySalonWebsite = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-20 min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section id="home" className="pt-20 h-[60vh] flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-amber-50/30 via-stone-50 to-neutral-100"></div>
         <img 
           src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&h=1080&fit=crop&q=80" 
           alt="Salon Interior" 
-          className="absolute inset-0 w-full h-full object-cover opacity-15"
+          className="absolute inset-0 w-full h-[60vh] object-cover opacity-50"
         />
         <div className="relative text-center px-4 py-32 max-w-5xl mx-auto">
           <div className="mb-8">
@@ -152,10 +197,10 @@ const MySalonWebsite = () => {
           <h2 className="text-5xl md:text-7xl font-serif text-stone-800 mb-8 leading-tight">
             World's Best<br />Beauty Salon
           </h2>
-          <p className="text-xl md:text-2xl text-stone-600 font-light mb-4">
+          <p className="text-xl md:text-2xl text-white font-light mb-4">
             Professional Excellence,
           </p>
-          <p className="text-xl md:text-2xl text-stone-600 font-light mb-12">
+          <p className="text-xl md:text-2xl text-white font-light mb-12">
             First-Class Results
           </p>
           <div className="w-16 h-px bg-amber-600 mx-auto"></div>
@@ -253,12 +298,17 @@ const MySalonWebsite = () => {
                 <div className="p-6">
                   <ul className="space-y-2">
                     {service.items.map((item, idx) => (
-                      <li key={idx} className="text-stone-600 flex items-start text-sm">
-                        <span className="text-amber-600 mr-2 mt-1">•</span>
-                        <span>{item}</span>
+                      <li key={idx} className="text-stone-600 flex items-start justify-between text-sm">
+                        <div className="flex items-start">
+                          <span className="text-amber-600 mr-2 mt-1">•</span>
+                          <span>{item.name}</span>
+                        </div>
+                        <span className="text-amber-700 font-medium">{item.price}</span>
                       </li>
                     ))}
+
                   </ul>
+
                 </div>
               </div>
             ))}
