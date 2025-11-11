@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Menu, X, Phone, Mail, MapPin, Clock, Award, Users, Sparkles, Gift, Wifi, Zap, Car, Calendar } from 'lucide-react';
-import Gallery from './gallery.jsx';
-import { Link } from 'react-router-dom';
 
 const MySalonWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -152,12 +150,12 @@ const MySalonWebsite = () => {
             </div>
 
             <div className="hidden md:flex space-x-8">
-              <a href="#home" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">Home</a>
-              <a href="#about" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">About</a>
-              <a href="#services" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">Services</a>
+              <a href="/" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">Home</a>
+              <a href="/about" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">About</a>
+              <a href="/services" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">Services</a>
               <a onClick={() => window.location.href = "/gallery"} className="cursor-pointer text-stone-700 hover:text-amber-700 transition-colors font-medium">Gallery</a>
-              <a href="#features" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">Features</a>
-              <a href="#contact" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">Contact</a>
+              <a href="/features" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">Features</a>
+              <a href="/contact" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">Contact</a>
             </div>
 
             <div className="md:hidden">
@@ -171,12 +169,12 @@ const MySalonWebsite = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t border-stone-200">
             <div className="px-4 pt-2 pb-4 space-y-2">
-              <a href="#home" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Home</a>
-              <a href="#about" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">About</a>
-              <a href="#services" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Services</a>
+              <a href="/" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Home</a>
+              <a href="/about" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">About</a>
+              <a href="/services" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Services</a>
               <a onClick={() => window.location.href = "/gallery"} className="cursor-pointer text-stone-700 hover:text-amber-700 transition-colors font-medium">Gallery</a>
-              <a href="#features" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Features</a>
-              <a href="#contact" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Contact</a>
+              <a href="/features" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Features</a>
+              <a href="/contact" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Contact</a>
             </div>
           </div>
         )}
@@ -447,10 +445,10 @@ const MySalonWebsite = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
               <ul className="space-y-2">
-                <li><a href="#home" className="text-stone-400 hover:text-amber-600 transition-colors">Home</a></li>
-                <li><a href="#about" className="text-stone-400 hover:text-amber-600 transition-colors">About</a></li>
-                <li><a href="#services" className="text-stone-400 hover:text-amber-600 transition-colors">Services</a></li>
-                <li><a href="#contact" className="text-stone-400 hover:text-amber-600 transition-colors">Contact</a></li>
+                <li><a href="/" className="text-stone-400 hover:text-amber-600 transition-colors">Home</a></li>
+                <li><a href="/about" className="text-stone-400 hover:text-amber-600 transition-colors">About</a></li>
+                <li><a href="/services" className="text-stone-400 hover:text-amber-600 transition-colors">Services</a></li>
+                <li><a href="/contact" className="text-stone-400 hover:text-amber-600 transition-colors">Contact</a></li>
               </ul>
             </div>
             <div>
