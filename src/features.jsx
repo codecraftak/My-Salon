@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import {
   Scissors,
@@ -10,15 +10,13 @@ import {
   Wifi,
   Heart,
   Shield,
-  Droplet,
-  Phone,
-  Mail,
-  Instagram,
-  Facebook,
-  Twitter,
+  Menu,
+  X,
 } from "lucide-react";
 
 export default function Features() {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
   const features = [
     { icon: <Star />, title: "Expert Stylists", desc: "Highly skilled professionals trained with global trends." },
     { icon: <Car />, title: "Free Parking", desc: "Convenient on-site parking for all our valued clients." },
@@ -36,9 +34,10 @@ export default function Features() {
               {/* Header */}
       <header className="bg-white border-b border-neutral-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <h1 className="text-2xl sm:text-3xl font-serif text-neutral-800">
-            MySalon
-          </h1>
+          <div className="flex-shrink-0">
+            <h1 className="text-3xl font-serif text-stone-800 tracking-tight"><Link to="/" >MySalon</Link></h1>
+            <p className="text-xs text-stone-500 tracking-widest uppercase">Beauty & Wellness</p>
+          </div>
           <nav className="hidden lg:flex items-center space-x-8">
             {[
                 { name: "Home", to: "/" },
@@ -54,17 +53,57 @@ export default function Features() {
                   to={item.to}
                   className={`text-sm font-medium ${
                     item.name === "Features"
-                      ? "text-orange-600"
-                      : "text-neutral-700 hover:text-orange-600"
+                      ? "text-amber-600"
+                      : "text-neutral-700 hover:text-amber-600"
                   } transition-colors`}
                 >
                   {item.name}
                 </Link>
               )
             )}
-          </nav>
-        </div>
-            </header>
+            </nav>
+
+            
+          {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden text-neutral-700 hover:text-amber-600"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="lg:hidden bg-white border-t border-neutral-200 shadow-md">
+              <nav className="px-4 py-4 space-y-6">
+                {[
+                  { name: "Home", to: "/" },
+                  { name: "About", to: "/about" },
+                  { name: "Services", to: "/services" },
+                  { name: "Gallery", to: "/gallery" },
+                  { name: "Features", to: "/features" },
+                  { name: "Contact", to: "/contact" },
+                ].map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.to}
+                    className={`block text-base font-medium ${
+                      item.name === "Features"
+                        ? "text-amber-600" 
+                        : "text-neutral-700 hover:text-amber-600"
+                    } transition-colors`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          )}
+          
+
+      </header>
             
       {/* Hero Section */}
       <section className="relative bg-[url('https://images.unsplash.com/photo-1706629503603-e47c37722776?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNhbG9uJTIwZmVhdHVyZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=1000')] bg-cover bg-center h-[55vh] flex items-center justify-center">
@@ -86,10 +125,10 @@ export default function Features() {
               key={f.title}
               className="bg-white border border-neutral-200 rounded-xl shadow hover:shadow-lg text-center p-8 transition-all"
             >
-              <div className="flex justify-center text-orange-500 mb-4 text-3xl">
+              <div className="flex justify-center text-amber-500 mb-4 text-3xl">
                 {f.icon}
               </div>
-              <h4 className="text-lg font-semibold text-orange-600 mb-2">
+              <h4 className="text-lg font-semibold text-amber-600 mb-2">
                 {f.title}
               </h4>
               <p className="text-sm text-neutral-600">{f.desc}</p>
@@ -108,7 +147,7 @@ export default function Features() {
         </p>
         <a
           href="/contact"
-          className="px-6 py-3 bg-orange-600 text-white rounded-full shadow hover:bg-orange-700 transition-all"
+          className="px-6 py-3 bg-amber-600 text-white rounded-full shadow hover:bg-amber-700 transition-all"
         >
           Book Now
         </a>

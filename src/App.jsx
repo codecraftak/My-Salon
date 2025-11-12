@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
 import { Menu, X, Phone, Mail, MapPin, Clock, Award, Users, Sparkles, Gift, Wifi, Zap, Car, Calendar } from 'lucide-react';
 
 const MySalonWebsite = () => {
@@ -150,12 +151,12 @@ const MySalonWebsite = () => {
             </div>
 
             <div className="hidden md:flex space-x-8">
-              <a href="/" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">Home</a>
-              <a href="/about" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">About</a>
-              <a href="/services" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">Services</a>
-              <a onClick={() => window.location.href = "/gallery"} className="cursor-pointer text-stone-700 hover:text-amber-700 transition-colors font-medium">Gallery</a>
-              <a href="/features" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">Features</a>
-              <a href="/contact" className="text-stone-700 hover:text-amber-700 transition-colors font-medium">Contact</a>
+              <Link to="/" className="cursor-pointer text-amber-600 hover:text-amber-700 transition-colors font-medium">Home</Link>
+              <Link to="/about" className="cursor-pointer text-stone-700 hover:text-amber-700 transition-colors font-medium">About</Link>
+              <Link to="/services" className="cursor-pointer text-stone-700 hover:text-amber-700 transition-colors font-medium">Services</Link>
+              <Link to="/gallery" className="cursor-pointer text-stone-700 hover:text-amber-700 transition-colors font-medium">Gallery</Link>
+              <Link to="/features" className="cursor-pointer text-stone-700 hover:text-amber-700 transition-colors font-medium">Features</Link>
+              <Link to="/contact" className="cursor-pointer text-stone-700 hover:text-amber-700 transition-colors font-medium">Contact</Link>
             </div>
 
             <div className="md:hidden">
@@ -168,13 +169,13 @@ const MySalonWebsite = () => {
 
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t border-stone-200">
-            <div className="px-4 pt-2 pb-4 space-y-2">
-              <a href="/" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Home</a>
-              <a href="/about" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">About</a>
-              <a href="/services" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Services</a>
-              <a onClick={() => window.location.href = "/gallery"} className="cursor-pointer text-stone-700 hover:text-amber-700 transition-colors font-medium">Gallery</a>
-              <a href="/features" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Features</a>
-              <a href="/contact" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Contact</a>
+            <div className="px-4 pt-2 pb-4 space-y-2 font-medium">
+              <Link to="/" onClick={() => setIsMenuOpen(true)} className="block py-2 text-amber-600 hover:text-amber-700">Home</Link>
+              <Link to="/about" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">About</Link>
+              <Link to="/services" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Services</Link>
+              <Link to="/gallery" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Gallery</Link>
+              <Link to="/features" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Features</Link>
+              <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="block py-2 text-stone-700 hover:text-amber-700">Contact</Link>
             </div>
           </div>
         )}

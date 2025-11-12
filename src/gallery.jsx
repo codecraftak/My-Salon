@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
 import { X, Menu, Phone, Mail, MapPin, Instagram, Facebook, Twitter, Clock, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const MySalonGallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -58,20 +59,16 @@ const MySalonGallery = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Top Contact Bar */}
-      
+ 
 
       {/* Main Header */}
       <header className="bg-white border-b border-neutral-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
-            <div className="flex items-center">
-              <h1
-                onClick={()=> navigate("/") }
-                className="text-2xl sm:text-3xl font-serif text-neutral-800">
-                MySalon
-              </h1>
+            <div className="flex-shrink-0">
+              <h1 className="text-3xl font-serif text-stone-800 tracking-tight"><Link to="/" >MySalon</Link></h1>
+              <p className="text-xs text-stone-500 tracking-widest uppercase">Beauty & Wellness</p>
             </div>
 
             {/* Desktop Navigation */}
@@ -82,8 +79,8 @@ const MySalonGallery = () => {
                   href={link.href}
                   className={`text-sm font-medium transition-colors ${
                     link.active
-                      ? 'text-orange-600'
-                      : 'text-neutral-700 hover:text-orange-600'
+                      ? 'text-amber-600'
+                      : 'text-neutral-700 hover:text-amber-600'
                   }`}
                 >
                   {link.name}
@@ -94,23 +91,23 @@ const MySalonGallery = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden text-neutral-700 hover:text-orange-600"
+              className="lg:hidden text-neutral-700 hover:text-amber-600"
             >
-              <Menu className="w-6 h-6" />
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <nav className="lg:hidden py-4 border-t border-neutral-200">
+            <nav className="lg:hidden py-1 border-t border-neutral-200">
               {navLinks.map(link => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`block py-3 px-4 text-sm font-medium transition-colors ${
+                  className={`block py-3 px-1 text-x font-medium transition-colors ${
                     link.active
-                      ? 'text-orange-600 bg-orange-50'
-                      : 'text-neutral-700 hover:text-orange-600 hover:bg-neutral-50'
+                      ? 'text-amber-600 '
+                      : 'text-neutral-700 hover:text-amber-600 '
                   }`}
                 >
                   {link.name}
@@ -125,12 +122,12 @@ const MySalonGallery = () => {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-neutral-50 to-white">
         <div className="max-w-7xl mx-auto text-center">
           <div className="inline-block mb-6 animate-float">
-            <Sparkles className="w-12 h-12 text-orange-600" />
+            <Sparkles className="w-12 h-12 text-amber-600" />
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-neutral-800 mb-4">
             Our Gallery
           </h2>
-          <div className="w-24 h-1 bg-orange-600 mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-amber-600 mx-auto mb-6"></div>
           <p className="text-base sm:text-lg text-neutral-600 max-w-2xl mx-auto">
             Explore our portfolio of exceptional beauty transformations and discover the artistry behind every service we provide
           </p>
@@ -147,7 +144,7 @@ const MySalonGallery = () => {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-6 py-2.5 text-sm font-medium transition-all duration-300 ${
                   selectedCategory === cat.id
-                    ? 'bg-orange-600 text-white shadow-md'
+                    ? 'bg-amber-600 text-white shadow-md'
                     : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
                 }`}
               >
@@ -195,7 +192,7 @@ const MySalonGallery = () => {
 
                 {/* Category Badge */}
                 <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1 shadow-md">
-                  <span className="text-xs font-medium text-orange-600 capitalize">
+                  <span className="text-xs font-medium text-amber-600 capitalize">
                     {image.category}
                   </span>
                 </div>
@@ -218,7 +215,7 @@ const MySalonGallery = () => {
           onClick={() => setLightboxImage(null)}
         >
           <button
-            className="absolute top-4 right-4 text-white hover:text-orange-400 transition-colors p-2 bg-black/50 rounded-full"
+            className="absolute top-4 right-4 text-white hover:text-amber-400 transition-colors p-2 bg-black/50 rounded-full"
             onClick={() => setLightboxImage(null)}
           >
             <X className="w-8 h-8" />
@@ -248,11 +245,11 @@ const MySalonGallery = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-neutral-800 mb-4">
             Get In Touch
           </h2>
-          <div className="w-24 h-1 bg-orange-600 mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-amber-600 mx-auto mb-6"></div>
           <p className="text-neutral-600 mb-10 text-lg">
             Ready to experience exceptional beauty services? Book your appointment today and let our expert team create your perfect look
           </p>
-          <button className="bg-orange-600 text-white px-12 py-4 font-medium hover:bg-orange-700 transition-all duration-300 shadow-md hover:shadow-lg">
+          <button className="bg-amber-600 text-white px-12 py-4 font-medium hover:bg-amber-700 transition-all duration-300 shadow-md hover:shadow-lg">
             Send Message
           </button>
         </div>
@@ -282,12 +279,12 @@ const MySalonGallery = () => {
             <div>
               <h4 className="text-white font-medium text-lg mb-6">Quick Links</h4>
               <ul className="space-y-3 text-sm">
-                <li><a href="#home" className="text-neutral-400 hover:text-orange-500 transition-colors">Home</a></li>
-                <li><a href="#about" className="text-neutral-400 hover:text-orange-500 transition-colors">About</a></li>
-                <li><a href="#services" className="text-neutral-400 hover:text-orange-500 transition-colors">Services</a></li>
-                <li><a href="#gallery" className="text-neutral-400 hover:text-orange-500 transition-colors">Gallery</a></li>
-                <li><a href="#features" className="text-neutral-400 hover:text-orange-500 transition-colors">Features</a></li>
-                <li><a href="#contact" className="text-neutral-400 hover:text-orange-500 transition-colors">Contact</a></li>
+                <li><a href="#home" className="text-neutral-400 hover:text-amber-500 transition-colors">Home</a></li>
+                <li><a href="#about" className="text-neutral-400 hover:text-amber-500 transition-colors">About</a></li>
+                <li><a href="#services" className="text-neutral-400 hover:text-amber-500 transition-colors">Services</a></li>
+                <li><a href="#gallery" className="text-neutral-400 hover:text-amber-500 transition-colors">Gallery</a></li>
+                <li><a href="#features" className="text-neutral-400 hover:text-amber-500 transition-colors">Features</a></li>
+                <li><a href="#contact" className="text-neutral-400 hover:text-amber-500 transition-colors">Contact</a></li>
               </ul>
             </div>
 
@@ -296,26 +293,26 @@ const MySalonGallery = () => {
               <h4 className="text-white font-medium text-lg mb-6">Connect With Us</h4>
               <div className="space-y-4 text-sm">
                 <div className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                  <MapPin className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
                   <span className="text-neutral-400">121 Wallstreet Street, New York, USA 10005</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-orange-500 flex-shrink-0" />
+                  <Phone className="w-5 h-5 text-amber-500 flex-shrink-0" />
                   <span className="text-neutral-400">+1 234-567-8900</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-orange-500 flex-shrink-0" />
+                  <Mail className="w-5 h-5 text-amber-500 flex-shrink-0" />
                   <span className="text-neutral-400">mysalon@email.com</span>
                 </div>
               </div>
               <div className="flex items-center space-x-4 mt-6">
-                <a href="#" className="text-neutral-400 hover:text-orange-500 transition-colors">
+                <a href="#" className="text-neutral-400 hover:text-amber-500 transition-colors">
                   <Instagram className="w-5 h-5" />
                 </a>
-                <a href="#" className="text-neutral-400 hover:text-orange-500 transition-colors">
+                <a href="#" className="text-neutral-400 hover:text-amber-500 transition-colors">
                   <Facebook className="w-5 h-5" />
                 </a>
-                <a href="#" className="text-neutral-400 hover:text-orange-500 transition-colors">
+                <a href="#" className="text-neutral-400 hover:text-amber-500 transition-colors">
                   <Twitter className="w-5 h-5" />
                 </a>
               </div>

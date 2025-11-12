@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import {
   Phone,
@@ -7,19 +7,23 @@ import {
   Facebook,
   Twitter,
   MapPin,
+  Menu,
+  X,
   Clock,
 } from "lucide-react";
 
 export default function About() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <div className="bg-white text-neutral-800">
       
       {/* Header */}
       <header className="bg-white border-b border-neutral-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <h1 className="text-2xl sm:text-3xl font-serif text-neutral-800">
-            MySalon
-          </h1>
+          <div className="flex-shrink-0">
+              <h1 className="text-3xl font-serif text-stone-800 tracking-tight"><Link to="/" >MySalon</Link></h1>
+              <p className="text-xs text-stone-500 tracking-widest uppercase">Beauty & Wellness</p>
+            </div>
           <nav className="hidden lg:flex items-center space-x-8">
             {[
                 { name: "Home", to: "/" },
@@ -35,8 +39,8 @@ export default function About() {
                   to={item.to}
                   className={`text-sm font-medium ${
                     item.name === "About"
-                      ? "text-orange-600"
-                      : "text-neutral-700 hover:text-orange-600"
+                      ? "text-amber-600"
+                      : "text-neutral-700 hover:text-amber-600"
                   } transition-colors`}
                 >
                   {item.name}
@@ -44,7 +48,44 @@ export default function About() {
               )
             )}
           </nav>
+          {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden text-neutral-700 hover:text-amber-600"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
         </div>
+        
+        {/* Mobile Menu */}
+          {mobileMenuOpen && (
+          <div className="lg:hidden bg-white border-t border-neutral-200 shadow-md">
+            <nav className="px-4 py-4 space-y-6">
+              {[
+                { name: "Home", to: "/" },
+                { name: "About", to: "/about" },
+                { name: "Services", to: "/services" },
+                { name: "Gallery", to: "/gallery" },
+                { name: "Features", to: "/features" },
+                { name: "Contact", to: "/contact" },
+              ].map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.to}
+                  className={`block text-base font-medium ${
+                    item.name === "About"
+                      ? "text-amber-600"
+                      : "text-neutral-700 hover:text-amber-600"
+                    } transition-colors`}
+                  onClick={() => setMobileMenuOpen(false)}
+                > 
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+
+          </div>
+          )}
       </header>
 
       {/* Hero Section */}
@@ -122,7 +163,7 @@ export default function About() {
                 key={item.title}
                 className="p-6 bg-white rounded-2xl shadow hover:shadow-md transition-shadow"
               >
-                <h4 className="text-xl font-semibold text-orange-600 mb-3">
+                <h4 className="text-xl font-semibold text-amber-600 mb-3">
                   {item.title}
                 </h4>
                 <p className="text-sm text-neutral-600 leading-relaxed">
@@ -149,22 +190,22 @@ export default function About() {
             <h4 className="text-white font-semibold mb-3">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/" className="hover:text-orange-500">
+                <a href="/" className="hover:text-amber-500">
                   Home
                 </a>
               </li>
               <li>
-                <a href="/about" className="hover:text-orange-500">
+                <a href="/about" className="hover:text-amber-500">
                   About
                 </a>
               </li>
               <li>
-                <a href="/services" className="hover:text-orange-500">
+                <a href="/services" className="hover:text-amber-500">
                   Services
                 </a>
               </li>
               <li>
-                <a href="/contact" className="hover:text-orange-500">
+                <a href="/contact" className="hover:text-amber-500">
                   Contact
                 </a>
               </li>
@@ -174,15 +215,15 @@ export default function About() {
           <div>
             <h4 className="text-white font-semibold mb-3">Contact Us</h4>
             <p className="text-sm flex items-center space-x-2 mb-2">
-              <MapPin className="w-4 h-4 text-orange-500" />
+              <MapPin className="w-4 h-4 text-amber-500" />
               <span>123 Beauty Street, New York</span>
             </p>
             <p className="text-sm flex items-center space-x-2 mb-2">
-              <Phone className="w-4 h-4 text-orange-500" />
+              <Phone className="w-4 h-4 text-amber-500" />
               <span>+1 234-567-8900</span>
             </p>
             <p className="text-sm flex items-center space-x-2 mb-2">
-              <Mail className="w-4 h-4 text-orange-500" />
+              <Mail className="w-4 h-4 text-amber-500" />
               <span>info@mysalon.com</span>
             </p>
           </div>
@@ -190,13 +231,13 @@ export default function About() {
           <div>
             <h4 className="text-white font-semibold mb-3">Follow Us</h4>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-orange-500">
+              <a href="#" className="hover:text-amber-500">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="hover:text-orange-500">
+              <a href="#" className="hover:text-amber-500">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="hover:text-orange-500">
+              <a href="#" className="hover:text-amber-500">
                 <Twitter className="w-5 h-5" />
               </a>
             </div>
