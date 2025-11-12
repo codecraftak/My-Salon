@@ -188,12 +188,11 @@ export default function Contact() {
             <ul className="space-y-2 text-sm">
               {["Home", "About", "Services", "Contact"].map((link) => (
                 <li key={link}>
-                  <a
-                    href={`/${link.toLowerCase()}`}
+                  <Link to={`/${link.toLowerCase()}`}
                     className="hover:text-amber-500"
                   >
                     {link}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -218,15 +217,15 @@ export default function Contact() {
           <div>
             <h4 className="text-white font-semibold mb-3">Follow Us</h4>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-amber-500">
+              <Link to="#" className="hover:text-amber-500">
                 <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="hover:text-amber-500">
+              </Link>
+              <Link to="#" className="hover:text-amber-500">
                 <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="hover:text-amber-500">
+              </Link>
+              <Link to="#" className="hover:text-amber-500">
                 <Twitter className="w-5 h-5" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

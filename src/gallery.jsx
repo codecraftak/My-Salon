@@ -9,14 +9,14 @@ const MySalonGallery = () => {
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Gallery', href: '/gallery', active: true },
-    { name: 'Features', href: '/features' },
-    { name: 'Contact', href: '/contact' }
-  ];
+  // const navLinks = [
+  //   { name: 'Home', href: '/' },
+  //   { name: 'About', href: '/about' },
+  //   { name: 'Services', href: '/services' },
+  //   { name: 'Gallery', href: '/gallery', active: true },
+  //   { name: 'Features', href: '/features' },
+  //   { name: 'Contact', href: '/contact' }
+  // ];
 
   
   const categories = [
@@ -73,20 +73,29 @@ const MySalonGallery = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
-              {navLinks.map(link => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className={`text-sm font-medium transition-colors ${
-                    link.active
-                      ? 'text-amber-600'
-                      : 'text-neutral-700 hover:text-amber-600'
-                  }`}
-                >
-                  {link.name}
-                </a>
-              ))}
-            </nav>
+              {[
+                              { name: "Home", to: "/" },
+                              { name: "About", to: "/about" },
+                              { name: "Services", to: "/services" },
+                              { name: "Gallery", to: "/gallery" },
+                              { name: "Features", to: "/features" },
+                              { name: "Contact", to: "/contact" },
+                              
+                          ].map((item) => (
+                              <Link
+                                key={item.name}
+                                to={item.to}
+                                className={`text-sm font-medium ${
+                                  item.name === "Features"
+                                    ? "text-amber-600"
+                                    : "text-neutral-700 hover:text-amber-600"
+                                } transition-colors`}
+                              >
+                                {item.name}
+                              </Link>
+                            )
+                          )}
+                          </nav>
 
             {/* Mobile Menu Button */}
             <button
@@ -97,25 +106,36 @@ const MySalonGallery = () => {
             </button>
           </div>
 
-          {/* Mobile Navigation */}
+          {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <nav className="lg:hidden py-1 border-t border-neutral-200">
-              {navLinks.map(link => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className={`block py-3 px-1 text-x font-medium transition-colors ${
-                    link.active
-                      ? 'text-amber-600 '
-                      : 'text-neutral-700 hover:text-amber-600 '
-                  }`}
-                >
-                  {link.name}
-                </a>
-              ))}
-            </nav>
-          )}
+                      <div className="lg:hidden bg-white border-t border-neutral-200 shadow-md">
+                        <nav className="px-4 py-4 space-y-6">
+                          {[
+                            { name: "Home", to: "/" },
+                            { name: "About", to: "/about" },
+                            { name: "Services", to: "/services" },
+                            { name: "Gallery", to: "/gallery" },
+                            { name: "Features", to: "/features" },
+                            { name: "Contact", to: "/contact" },
+                          ].map((item) => (
+                            <Link
+                              key={item.name}
+                              to={item.to}
+                              className={`block text-base font-medium ${
+                                item.name === "Features"
+                                  ? "text-amber-600" 
+                                  : "text-neutral-700 hover:text-amber-600"
+                              } transition-colors`}
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </nav>
+                      </div>
+                    )}
         </div>
+
       </header>
 
       {/* Hero Section */}
@@ -279,12 +299,12 @@ const MySalonGallery = () => {
             <div>
               <h4 className="text-white font-medium text-lg mb-6">Quick Links</h4>
               <ul className="space-y-3 text-sm">
-                <li><a href="#home" className="text-neutral-400 hover:text-amber-500 transition-colors">Home</a></li>
-                <li><a href="#about" className="text-neutral-400 hover:text-amber-500 transition-colors">About</a></li>
-                <li><a href="#services" className="text-neutral-400 hover:text-amber-500 transition-colors">Services</a></li>
-                <li><a href="#gallery" className="text-neutral-400 hover:text-amber-500 transition-colors">Gallery</a></li>
-                <li><a href="#features" className="text-neutral-400 hover:text-amber-500 transition-colors">Features</a></li>
-                <li><a href="#contact" className="text-neutral-400 hover:text-amber-500 transition-colors">Contact</a></li>
+                <li><Link to="#home" className="text-neutral-400 hover:text-amber-500 transition-colors">Home</Link></li>
+                <li><Link to="#about" className="text-neutral-400 hover:text-amber-500 transition-colors">About</Link></li>
+                <li><Link to="#services" className="text-neutral-400 hover:text-amber-500 transition-colors">Services</Link></li>
+                <li><Link to="#gallery" className="text-neutral-400 hover:text-amber-500 transition-colors">Gallery</Link></li>
+                <li><Link to="#features" className="text-neutral-400 hover:text-amber-500 transition-colors">Features</Link></li>
+                <li><Link to="#contact" className="text-neutral-400 hover:text-amber-500 transition-colors">Contact</Link></li>
               </ul>
             </div>
 
@@ -306,15 +326,15 @@ const MySalonGallery = () => {
                 </div>
               </div>
               <div className="flex items-center space-x-4 mt-6">
-                <a href="#" className="text-neutral-400 hover:text-amber-500 transition-colors">
+                <Link to="#" className="text-neutral-400 hover:text-amber-500 transition-colors">
                   <Instagram className="w-5 h-5" />
-                </a>
-                <a href="#" className="text-neutral-400 hover:text-amber-500 transition-colors">
+                </Link>
+                <Link to="#" className="text-neutral-400 hover:text-amber-500 transition-colors">
                   <Facebook className="w-5 h-5" />
-                </a>
-                <a href="#" className="text-neutral-400 hover:text-amber-500 transition-colors">
+                </Link>
+                <Link to="#" className="text-neutral-400 hover:text-amber-500 transition-colors">
                   <Twitter className="w-5 h-5" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

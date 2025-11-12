@@ -199,24 +199,24 @@ export default function Services() {
             <h4 className="text-white font-semibold mb-3">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/" className="hover:text-amber-500">
+                <Link to="/" className="hover:text-amber-500">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/about" className="hover:text-amber-500">
+                <Link to="/about" className="hover:text-amber-500">
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/services" className="hover:text-amber-500">
+                <Link to="/services" className="hover:text-amber-500">
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact" className="hover:text-amber-500">
+                <Link to="/contact" className="hover:text-amber-500">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -240,15 +240,15 @@ export default function Services() {
           <div>
             <h4 className="text-white font-semibold mb-3">Follow Us</h4>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-amber-500">
+              <Link to="#" className="hover:text-amber-500">
                 <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="hover:text-amber-500">
+              </Link>
+              <Link to="#" className="hover:text-amber-500">
                 <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="hover:text-amber-500">
+              </Link>
+              <Link to="#" className="hover:text-amber-500">
                 <Twitter className="w-5 h-5" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

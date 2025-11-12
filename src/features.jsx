@@ -37,7 +37,9 @@ export default function Features() {
           <div className="flex-shrink-0">
             <h1 className="text-3xl font-serif text-stone-800 tracking-tight"><Link to="/" >MySalon</Link></h1>
             <p className="text-xs text-stone-500 tracking-widest uppercase">Beauty & Wellness</p>
-          </div>
+            </div>
+            
+           {/* Desktop Navigation */} 
           <nav className="hidden lg:flex items-center space-x-8">
             {[
                 { name: "Home", to: "/" },
@@ -145,12 +147,11 @@ export default function Features() {
         <p className="text-neutral-600 mb-6">
           Book your appointment today and let our experts redefine your beauty.
         </p>
-        <a
-          href="/contact"
+        <Link to="/contact"
           className="px-6 py-3 bg-amber-600 text-white rounded-full shadow hover:bg-amber-700 transition-all"
         >
           Book Now
-        </a>
+        </Link>
       </section>
 
       {/* Footer */}
@@ -164,10 +165,10 @@ export default function Features() {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
               <ul className="space-y-2">
-                <li><a href="/" className="text-stone-400 hover:text-amber-600 transition-colors">Home</a></li>
-                <li><a href="/about" className="text-stone-400 hover:text-amber-600 transition-colors">About</a></li>
-                <li><a href="/services" className="text-stone-400 hover:text-amber-600 transition-colors">Services</a></li>
-                <li><a href="/contact" className="text-stone-400 hover:text-amber-600 transition-colors">Contact</a></li>
+                <li><Link to="/" className="text-stone-400 hover:text-amber-600 transition-colors">Home</Link></li>
+                <li><Link to="/about" className="text-stone-400 hover:text-amber-600 transition-colors">About</Link></li>
+                <li><Link to="/services" className="text-stone-400 hover:text-amber-600 transition-colors">Services</Link></li>
+                <li><Link to="/contact" className="text-stone-400 hover:text-amber-600 transition-colors">Contact</Link></li>
               </ul>
             </div>
             <div>

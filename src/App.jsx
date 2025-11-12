@@ -446,10 +446,10 @@ const MySalonWebsite = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
               <ul className="space-y-2">
-                <li><a href="/" className="text-stone-400 hover:text-amber-600 transition-colors">Home</a></li>
-                <li><a href="/about" className="text-stone-400 hover:text-amber-600 transition-colors">About</a></li>
-                <li><a href="/services" className="text-stone-400 hover:text-amber-600 transition-colors">Services</a></li>
-                <li><a href="/contact" className="text-stone-400 hover:text-amber-600 transition-colors">Contact</a></li>
+                <li><Link to="/" className="text-stone-400 hover:text-amber-600 transition-colors">Home</Link></li>
+                <li><Link to="/about" className="text-stone-400 hover:text-amber-600 transition-colors">About</Link></li>
+                <li><Link to="/services" className="text-stone-400 hover:text-amber-600 transition-colors">Services</Link></li>
+                <li><Link to="/contact" className="text-stone-400 hover:text-amber-600 transition-colors">Contact</Link></li>
               </ul>
             </div>
             <div>
